@@ -24,8 +24,8 @@ Utilized VM Virtual Box for both Domain Controller.
 <h2>Network Overview:</h2>
 
 <p align="center">
-Select the disk:  <br/>
-<img src="https://imgur.com/a/BM5g5Of" height="80%" width="80%"
+Network Overview: <br/>
+<img src="https://imgur.com/Tgc1mZD.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 
 
 <h2>Program walk-through:</h2>
