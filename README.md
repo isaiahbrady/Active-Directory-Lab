@@ -28,11 +28,11 @@ Network Overview: <br/>
 <img src="https://imgur.com/Tgc1mZD.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 
 
-<h2>Program walk-through:</h2>
+<h2>Lab walk-through:</h2>
 
 <p align="center">
-Launch the utility: <br/>
-<img src="https://i.imgur.com/62TgaWL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Configure both DC VM and Client VM : <br/>
+<img src="https://i.imgur.com/6VZywTG.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 Select the disk:  <br/>
