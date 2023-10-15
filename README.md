@@ -56,8 +56,14 @@ Create Organization Unit to place Admin Account:  <br/>
 <img src="https://imgur.com/8FHwE9Z.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Observe the wiped disk:  <br/>
-<img src="https://i.imgur.com/AeZkvFQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Create Admin Account within OU (Domain Admin):  <br/>
+<img src="https://imgur.com/jmqOuAx.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+Set up Remote Access w/ Routing: allows our client to connect to the internet through DC  <br/>
+<img src="https://imgur.com/JLPVeYg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
 </p>
 
 <!--
