@@ -35,12 +35,13 @@ Configure both DC VM and Client VM : <br/>
 <img src="https://i.imgur.com/6VZywTG.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Select the disk:  <br/>
-<img src="https://i.imgur.com/tcTyMUE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Domain Controller: Identify and label internal/external facing NICs.<br/>
+<img src="https://imgur.com/K6GAPlm.png" height="80%" width="80%" alt="Disk Sanitization Steps"/><br/>
+The internal NIC will be assigned an APIPA IP Address, while external will have one similar to the host network.<br/> 
 <br />
 <br />
-Enter the number of passes: <br/>
-<img src="https://i.imgur.com/nCIbXbg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Configure Internal NIC TCP/IPv4 protocol: <br/>
+<img src="https://imgur.com/7zvTxK8.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 Confirm your selection:  <br/>
