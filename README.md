@@ -1,107 +1,88 @@
-<h1>Active Directory Home Lab</h1>
+# Integrated Active Directory Environment in VirtualBox
 
- ### [YouTube Demonstration](https://youtu.be/7eJexJVCqJo)
+## Introduction
 
-<h2>Description</h2>
-Project consists of a configuring a Domain Controller (Server 19) utilizing two NIC (intranet and internet) and implementing Domain / AD DS, RAS / NAT, and DHCP. 
-
-Use Powershell Script to generate 1k users with desired preconfiuration. 
-
-Utilized VM Virtual Box for both Domain Controller. 
+In this project, we utilized Oracle VirtualBox to establish an encompassing environment. This environment was comprised of a Windows Server 2019 Virtual Machine (VM) operating as the Domain Controller (DC) with the Active Directory (AD) service. To populate the AD with around 1000 fictitious user profiles, a tailored PowerShell script was employed. Subsequently, a Windows 10 Pro VM and an Ubuntu 22.04.1 VM were incorporated into the AD, culminating in the formation of a centralized management system for overseeing user accounts, computer resources, and other elements within the network. 
 
 <br />
 
-<h2>Languages and Utilities Used</h2>
+## Project Architecture
 
-- <b>PowerShell</b> 
-- <b>VirtualBox</b>
+![AD ARCH](https://i.imgur.com/JW4alB6.png)
 
-<h2>Environments Used </h2>
+<br />
 
-- <b>Windows 10</b> 
-- <b>Windows Server 2019 </b>
+## Technologies and Components Utilized:
 
-<h2>Network Overview:</h2>
+- Active Directory
+- AD Domain Service
+- NAT
+- DNS
+- Networking
+- PowerShell
+- Oracle VirtualBox
+- Windows Server 2019
+- Windows 10 Pro
+- Ubuntu 22.04.1
 
-<p align="center">
-Network Overview: <br/>
-<img src="https://imgur.com/Tgc1mZD.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
 
+## Windows Server 2019 Setup
 
-<h2>Lab walk-through:</h2>
+- Two network adapters were used to separate traffic between external and internal. <br> ![adapters](https://i.imgur.com/WQydx1Ml.png) <br>
+- The following roles and services were configured. <br> ![roles](https://i.imgur.com/hDJ4vyfl.png)
+- PowerShell script used to generate approximately 1000 fictional users. <br> ![ps scrip](https://i.imgur.com/dhNIRcql.png) <br> ![AD Users](https://i.imgur.com/CG0Pu8vl.png)
+- After the configurations were completed, I then took time to explore AD by performing tasks such as: creating groups, organizational units, modifying user permissions, disabling users, deleting users, and so on.  <br> ![AD users and groups](https://i.imgur.com/2FVLj5ml.png)
 
-<p align="center">
-Configure both DC VM and Client VM : <br/>
-<img src="https://i.imgur.com/6VZywTG.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
-<br />
-Domain Controller: Identify and label internal/external facing NICs.<br/>
-<img src="https://imgur.com/K6GAPlm.png" height="80%" width="80%" alt="Disk Sanitization Steps"/><br/>
-The internal NIC will be assigned an APIPA IP Address, while external will have one similar to the host network.<br/> 
-<br />
-<br />
-Configure Internal NIC TCP/IPv4 protocol: <br/>
-<img src="https://imgur.com/7zvTxK8.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Set up for AD DS :  <br/>
-<img src="https://imgur.com/YDmKRaC.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-After Deployment Configuration:  <br/>
-<img src="https://imgur.com/ldHa0Iz.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Create Organization Unit to place Admin Account:  <br/>
-<img src="https://imgur.com/8FHwE9Z.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Create Admin Account within OU (Domain Admin):  <br/>
-<img src="https://imgur.com/jmqOuAx.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Set up Remote Access w/ Routing: <br/>
-<img src="https://imgur.com/JLPVeYg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Configure NAT with External Facing NIC: <br/>
-<img src="https://imgur.com/hdfhaYv.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Start DHCP Service: <br/>
-<img src="https://imgur.com/CsVRlBV.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Configure DHCP settings including scope: <br/>
-<img src="https://imgur.com/N8ovtyV.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Build & Run Python Script to Configure 1,000 account w/ desired default configurations: <br/>
-<img src="https://imgur.com/fmIBhci.png" height="80%" width="80%" alt="Disk Sanitization Steps"/> <br/>
-All of these created accounts will be able to login via Client1 or any other client connected to the DC <br/>
-<br />
-<br />
-Setup VM for Client1, ensure NIC is attached to internal network: <br/>
-<img src="https://imgur.com/CL3NE44.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Configure Client1 to be a member of the DC: <br/>
-<img src="https://imgur.com/CbzHPWf.png" height="80%" width="80%" alt="Disk Sanitization Steps"/> <br/>
-Any of the 1000 users created w/ the PS script will be able to login via Client1, and access services offered by DC <br/>
-<br />
-<br />
-Finally, back on our DC, we can see the leased address from Client1: <br/>
-<img src="https://imgur.com/zkFIsQP.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-</p>
 
-<!--
- ```diff
-- text in red
-+ text in green
-! text in orange
-# text in gray
-@@ text in purple (and bold)@@
-```
---!>
+## Connecting Windows 10 Pro to AD
+
+- The creation of the Windows VM was straightforward and I encounted no issues.
+- During the installation I placed the VM on the internal network and created a local account. 
+- I then updated the system's name and joined it to my domain. <br> ![Change name and join domain](https://i.imgur.com/96BzAlim.png)
+- From there I verified the VM was connected to AD by logging into several of the random users I had created. <br> ![Change name and join domain](https://i.imgur.com/ToE60Pgm.png)
+
+<br />
+
+## Connecting Ubuntu 22.04.1 to AD
+
+I wanted to expand the lab to include systems other than Windows, so I decided to connect Ubuntu to AD. This was by far the most challenging portion of the lab. One is led to believe that while installing Ubuntu you can simply choose to use AD in the setup, and all will be fine. I never got it to succeed and always ended up getting a failed message. After searching the web, it appears to be a common issue and it took several YouTube videos, official documentation, and various websites to develop a workaround that would allow my VM to connect with AD. 
+
+#### STEPS
+
+Computer Name: LINUX <br>
+Domain Name: mydomain.com <br>
+Host Name: LINUX.mydomain.com <br>
+Administrator Account: username
+
+  1. Create your Ubuntu VM, update everything, and take a snapshot so you can easily go back if something goes wrong. Network settings will be the same as your  Windows 10 Pro VM.
+  2. Open up the command line interface.
+  3. Verify you can ping the DC and that the DC can ping back.
+  4. Set the host name for the machine: <br> ```sudo hostnamectl set-hostname LINUX.mydomain.com```
+  5. Verify the host name: <br> ```hostnamectl```
+  6. Install the following: <br> ```sudo apt install sssd-ad sssd-tools realmd adcli```
+  7. Discover the DC: <br> ```sudo realm -v discover mydomain.com```
+  8. Install the following: <br> ```sudo apt-get install -y krb5.conf```
+  9. Edit the krb5.conf file. (Capilization matters, verify default_realm is your DC and add rdns = false) <br> ```sudo nano /etc/krb5.conf``` <br> <br>
+![.conf edit](https://i.imgur.com/uTKdqMWl.png)
+  10. You might have to install this package: <br> ```sudo apt install krb5-user```
+  11. Obtain Kerberous ticket with an account that has admin priviledges: <br> ```kinit username```
+  12. Connect the system to the DC: <br> ```realm join -v -U username mydomain.com```
+  13. Verify you have can see random users in your AD: <br> ```id user@mydomain.com``` <br> <br> ![access to AD](https://i.imgur.com/vrfmAnDl.png)
+  14. Now log off your primary account and pick a random user in AD. <br> ```user@mydomain.com``` <br> <br> ![Linux Logon](https://i.imgur.com/TAy4kSNl.png)
+  15. Finally, once Ubuntu does the initial setup, open the command line interface and verify: <br> ```who``` <br> <br> ![who](https://i.imgur.com/s2djFZ3l.png)
+
+## Conclusion
+
+In this project, VirtualBox was used to create an integrated AD environment. The first VM was Windows Server 2019 that served as the DC, DHCP, and Active Directory populated with approximately 1000 users. Once the networking configurations were complete for the server, I then created two more VMs and connected them to an internal network using Active Directory. I found the initial setup for the two Windows machines straightforward; however, I did encounter difficulties by adding the additional goal of connecting an Ubuntu VM to Active Directory. After researching and testing I was able to find a solution that successfully fixed the problem and have created a project showing how AD can provide centralized management of user accounts, computers, and other network resources.   
+
+![AD Computers](https://i.imgur.com/yGbJT3Il.png)
+![DHCP Reservations](https://i.imgur.com/BHs2LzLl.png)
+
+<br />
+
+## Credits
+
+This project was based off YouTube content created by [Josh Madakor](https://www.youtube.com/watch?v=MHsI8hJmggI&t=8s).
+
